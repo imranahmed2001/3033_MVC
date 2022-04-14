@@ -14,7 +14,6 @@ namespace MVC___Beginner.Controllers
         // GET: Chuck
         public ActionResult Index()
         {
-
             RandomChuckJokeAPI joke;
 
             using (var client = new HttpClient())
@@ -24,7 +23,7 @@ namespace MVC___Beginner.Controllers
                 joke = JsonConvert.DeserializeObject<RandomChuckJokeAPI>(json);
             }
 
-            return View();
+            return View(joke);
         }
     }
 }
