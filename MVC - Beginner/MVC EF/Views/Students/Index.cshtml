@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MVC_EF.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Students</h2>
+
+<div class="row">
+    @foreach (var student in Model)
+    {
+    <div class="col-4">
+        <a href="/Students/Details/@student.StudentID" style="text-decoration:none;">
+            <div class="card student" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@student.LastName, @student.FirstName</h5>
+                    <p class="card-text">My Favorite color is @student.FavoriteColor!
+                    <br/> I am enrolled in @student.Registrations.Count().ToString("N0") classes
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    }
+</div>
